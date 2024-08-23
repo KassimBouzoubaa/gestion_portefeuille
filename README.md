@@ -51,13 +51,6 @@ Test technique d'une application web de suivi de portefeuilles pour Amiral Gesti
     flask run
     ```
 
-## Configuration
-
-1. **Configuration de la base de données** : Assurez-vous que MySQL est installé et en cours d'exécution. Créez une base de données correspondant à l'URI définie dans `.env`.
-
-2. **Fichier `.env`** : 
-    - `SQLALCHEMY_DATABASE_URI` : Spécifiez l'URI de connexion à votre base de données MySQL. Exemple : `mysql://username:password@localhost/portfolio_db`.
-
 ## Utilisation
 
 1. **Accéder à l'application** : Une fois le serveur lancé, ouvrez un navigateur web et accédez à `http://127.0.0.1:5000` pour utiliser l'application.
