@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Positions - Application de Suivi des Portefeuilles{% endblock %}
+
+{% block header_title %}Positions{% endblock %}
+
+{% block header_text %}Examinez les positions au sein de vos fonds et obtenez des détails sur vos investissements.{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        {% if positions %}
+            {% for position in positions %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Position ID: {{ position.id }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Fonds: {{ position.fond.nom }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Instrument: {{ position.instrument.nom }}</h6>
+                        <p class="card-text">Quantité: {{ position.quantite }}</p>
+                        <p class="card-text">Prix d'Achat Moyen: {{ position.prix_achat_moyen }} €</p>
+                        <p class="card-text">Prix Actuel: {{ position.prix_actuel }} €</p>
+                        <p class="card-text">
+                            Gain/Perte en Valeur:  <span class="{% if position.gain_perte_valeur|float > 0 %}text-success{% else %}text-danger{% endif %}">{{ position.gain_perte_valeur }} €<span/>
+                        </p>
+                        <p class="card-text">
+                            Gain/Perte en Pourcentage: <span class="{% if position.gain_perte_ratio|float > 0 %}text-success{% else %}text-danger{% endif %}">{{ position.gain_perte_ratio }} <span/>%
+                        </p>
+                        <a href="{{ url_for('transaction_historique', position_id=position.id) }}" class="btn btn-info">Voir Historique</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+        <div class="col-12">
+            <div class="alert alert-info" role="alert">
+                Aucune position trouvée pour ce fonds.
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

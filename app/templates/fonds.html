@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Fonds - Application de Suivi des Portefeuilles{% endblock %}
+
+{% block header_title %}Nos Fonds{% endblock %}
+
+{% block header_text %}Découvrez tous les fonds disponibles dans notre application.{% endblock %}
+
+{% block content %}
+<div class="row">
+    {% for fond in fonds %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{ fond.nom }}</h5>
+                    <p class="card-text">Détails et informations sur le fonds {{ fond.nom }}.</p>
+                    <a href="{{ url_for('voir_positions', fond_id=fond.id) }}" class="btn btn-primary">Voir les Positions</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

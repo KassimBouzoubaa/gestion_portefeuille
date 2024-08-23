@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Instruments - Application de Suivi des Portefeuilles{% endblock %}
+
+{% block header_title %}Instruments{% endblock %}
+
+{% block header_text %}Consultez et gérez vos instruments financiers avec facilité.{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        {% if instruments %}
+            {% for instrument in instruments %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ instrument.nom }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Type: {{ instrument.type }}</h6>
+                        <p class="card-text">Détails sur cet instrument financier.</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+        <div class="col-12">
+            <div class="alert alert-info" role="alert">
+                Aucun instrument trouvé.
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

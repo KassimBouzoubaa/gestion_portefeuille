@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Accueil - Application de Suivi des Portefeuilles{% endblock %}
+
+{% block header_title %}Bienvenue dans l'Application de Suivi des Portefeuilles{% endblock %}
+
+{% block header_text %}Suivez et gérez vos fonds, instruments, et positions avec facilité.{% endblock %}
+
+{% block header_buttons %}
+<a href="{{ url_for('voir_fonds') }}" class="btn btn-primary btn-lg">Voir les Fonds</a>
+<a href="{{ url_for('voir_instruments') }}" class="btn btn-secondary btn-lg">Voir les Instruments</a>
+{% endblock %}
+
+{% block content %}
+<section class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://www.dynamique-mag.com/wp-content/uploads/ae17581c221b7cc42cc12c219c2c5b56.jpg" class="card-img-top" alt="Fonds">
+                <div class="card-body">
+                    <h5 class="card-title">Fonds</h5>
+                    <p class="card-text">Visualisez et gérez vos fonds d'investissement.</p>
+                    <a href="{{ url_for('voir_fonds') }}" class="btn btn-primary">Voir les Fonds</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://st2.depositphotos.com/1439888/10698/i/450/depositphotos_106985694-stock-photo-financial-instruments-concept-on-the.jpg" class="card-img-top" alt="Instruments">
+                <div class="card-body">
+                    <h5 class="card-title">Instruments</h5>
+                    <p class="card-text">Consultez vos instruments financiers dès maintenant.</p>
+                    <a href="{{ url_for('voir_instruments') }}" class="btn btn-secondary">Voir les Instruments</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

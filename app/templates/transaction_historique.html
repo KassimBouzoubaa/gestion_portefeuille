@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Historique des Transactions - Application de Suivi des Portefeuilles{% endblock %}
+
+{% block header_title %}Historique des Transactions{% endblock %}
+
+{% block header_text %}Examinez l'historique des transactions pour cette position spécifique et obtenez des détails sur chaque achat ou vente.{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12 mb-4">
+            <h3>Historique des Transactions pour la Position ID: {{ position.id }}</h3>
+            <h5>Fonds: {{ position.fond.nom }}</h5>
+            <h5>Instrument: {{ position.instrument.nom }}</h5>
+        </div>
+        {% if transactions %}
+            {% for transaction in transactions %}
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Transaction ID: {{ transaction.id }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Date: {{ transaction.date_transaction.strftime('%d/%m/%Y') }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">Type: {{ transaction.type_transaction|capitalize }}</h6>
+                        <p class="card-text">Quantité: {{ transaction.quantite }}</p>
+                        <p class="card-text">Prix par Unité: {{ transaction.prix_transaction }} €</p>
+                        <p class="card-text">
+                            Valeur Totale: <span class="{% if transaction.valeur_transaction > 0 %}text-success{% else %}text-danger{% endif %}">{{ transaction.valeur_transaction }} €</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+        <div class="col-12">
+            <div class="alert alert-info" role="alert">
+                Aucune transaction trouvée pour cette position.
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

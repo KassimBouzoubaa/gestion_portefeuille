@@ -1,0 +1,49 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+.content {
+    flex: 1;
+}
+
+header {
+    background: #f8f9fa;
+}
+
+footer {
+    background: #343a40;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.card-img-top {
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-text {
+    flex-grow: 1; 
+}
+
+.btn {
+    margin-top: auto; 
+}
