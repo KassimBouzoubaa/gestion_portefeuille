@@ -1,4 +1,4 @@
-# Nom du Projet
+# PortefeuilleApp
 
 Test technique d'une application web de suivi de portefeuilles pour Amiral Gestion.
 
